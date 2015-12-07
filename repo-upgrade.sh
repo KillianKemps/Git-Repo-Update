@@ -20,6 +20,7 @@ function update {
   cd $Dir
   git stash > /tmp/repoUpdate
   editedFiles=`cat /tmp/repoUpdate`
+  printf "\n"
   echo $editedFiles
   git checkout master
   git pull --rebase
