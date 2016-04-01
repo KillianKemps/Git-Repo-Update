@@ -24,6 +24,7 @@ function update {
   echo $editedFiles
   git checkout master
   git pull --rebase
+  git remote update --prune
   git checkout -
   if [[ $editedFiles != *"No local changes to save"* ]]
   then
