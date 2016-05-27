@@ -7,7 +7,7 @@
 # By Killian Kemps                                        #
 ###########################################################
 
-list=`ls -d */`
+list=`ls -d ../*/`
 force_yes=false
 
 # Store user argument to force all repo update
