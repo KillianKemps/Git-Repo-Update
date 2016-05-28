@@ -23,3 +23,8 @@ Or if you're sure to update every repo, you can force to yes:
 ```
 ./update -f
 ```
+
+To prune remotes at the same time (does additionnal fetch request):
+```
+./update -p
+```
