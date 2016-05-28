@@ -3,7 +3,7 @@
 ###########################################################
 # Script to update all git repositories in current folder #
 #                                                         #
-# v0.3                                                    #
+# v0.4                                                    #
 # By Killian Kemps                                        #
 # Contributors: Pascal Duez                               #
 ###########################################################
