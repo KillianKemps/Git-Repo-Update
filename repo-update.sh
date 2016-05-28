@@ -5,15 +5,26 @@
 #                                                         #
 # v0.3                                                    #
 # By Killian Kemps                                        #
+# Contributors: Pascal Duez                               #
 ###########################################################
 
 list=`ls -d */`
 force_yes=false
 
 # Store user argument to force all repo update
-if [ "$1" = '-f' ] || [ "$1" = '--force-yes' ]; then
-  force_yes=true
-fi
+while :;
+do
+  case $1
+    in
+    -f|--force-yes) force_yes=true;;
+    -p|--prune-remote) prune_remote=true;;
+    -?*)
+      printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+      ;;
+    *) break
+  esac
+  shift
+done
 
 function update {
   printf "\n-- Updating $Dir"
@@ -24,7 +35,9 @@ function update {
   echo $editedFiles
   git checkout master
   git pull --rebase
-  git remote update --prune
+  if [ "$prune_remote" = true ] ; then
+    git remote update --prune
+  fi
   git checkout -
   if [[ $editedFiles != *"No local changes to save"* ]]
   then
